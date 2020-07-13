@@ -1,0 +1,41 @@
+{%extends 'blog/nav.html' %}
+{%block title_block%} {{post.title}}{%endblock%}
+    {%block nav%}
+    <h1>{{post.title}}</h1>
+    <p id='date'>Published on {{post.publish}} by {{post.author}}</p>
+    {{post.body|linebreaks}}<br><br>
+    <div class="container" align='center'>
+
+
+    <a href="/{{post.id}}/share"class="btn btn-primary btn-lg" <!----target="_blank"------it is one hyper link in new tab ---!>Share Post by Email</a>
+
+  </div>
+  {%with comments.count as comments_count%}
+  <h2>  {{comments_count}} comment{{comments_count |pluralize}}</h2>
+  {%endwith%}
+  {%if comments%}
+    {%for comment in comments%}
+
+<p id='ch'>  comment {{forloop.counter}} by {{comment.name}}on {{comment.created}}<!----{{forloop.conter}} it means it count the comments --!></p>
+
+  <div class="cb">
+    {{comment.body|linebreaks}}
+  </div>
+  {%endfor%}
+  <hr>
+  {%else%}
+  <p>There are no comments yet</p>
+  {%endif%}
+  {%if csubmit%}  <!---if csubmit=True---!>
+        <h2>Your comment added sucess fully</h2>
+        {%else%} <!---if csubmit=False      display the form ---!>
+          <h2>You can submit your comment please</h2>
+          <form method="POST">
+            {{form.as_p}}
+            {%csrf_token%}
+            <input type="submit" class="btn btn-primary" name="" value="Submit  comment">
+
+          </form>
+          {%endif%}
+
+    {%endblock%}

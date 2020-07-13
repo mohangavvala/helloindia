@@ -1,0 +1,26 @@
+{%extends 'blog/base.html' %}
+{%block title_block%} JAGA's Blog Home Page{%endblock%}
+    {%block content%}
+      <h1>JAGA's Blog</h1>
+      {%if tag%}  <!--  if tag is not None means when end user click the tag execute the if  -->
+        <h2>Post tagged with '{{tag.name}}'</h2>
+        {%endif%}
+      {%for post in post_list%}
+
+    <a href="{{post.get_absolute_url}}"><h2>{{post.title}}</h2></a>
+    <p id='date'>Published on {{post.publish}}  by {{post.author | title}}</p>
+
+
+
+
+<p>Tags:
+  {%for tag in post.tags.all %}
+   <a href="{%url 'post_list_by_tag_name' tag.slug %}" class="btn btn-primary btn-sucess">{{tag.name |title}}</a>
+   <!---{%if not forloop.last%},{%endif%}  <!--it means if tag.name is not last one of for loop then add ,-->
+    {%endfor%}
+</p>
+
+      {{post.body | truncatewords:30 | linebreaks}}
+      {%endfor%}
+{%include 'blog/pagenation.html'   with page=post_list%}<!---this tells pagenation.html included  that pagenation.html give some value that value stored in page -->
+    {%endblock%}

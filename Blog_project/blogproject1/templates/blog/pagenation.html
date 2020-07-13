@@ -1,0 +1,12 @@
+<div class="paginator">
+
+  {% if page.has_previous  %}<!-----if previous page is there----!>
+    <a href="?page={{page.previous_page_number}}">PREVIOUS</a><!---we get n]previous page number as hyper link ---!>
+    {%endif%}
+
+<span>Page {{page.number}} of {{page.paginator.num_pages}}</span>&nbsp   <!––this line disply like 2 0f 6 or 5 0f 6 simillarly  and include this page in post.html--!>
+
+{% if page.has_next  %}<!-----if next page is there----!>
+  <a href="?page={{page.next_page_number}}">NEXT</a><!---we get next page number as hyper link ---!>
+  {%endif%}
+</div>

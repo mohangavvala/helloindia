@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% extends "blog/base.html"%}
+{%block body_block%}
+
+
+<!--/ Section Contact-Footer Star /-->
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="contact-mf">
+            <div id="contact" class="box-shadow-full">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="title-box-2">
+                    <h5 class="title-left">
+                      Guide lines to Publish the post
+                    </h5>
+                  </div>
+                    <ol>
+                        <li>Enter <b>Title</b> field of the post related to your content. <br>
+                            <b>Example:</b> Python is programming language.</li>
+                        <li>Enter <b>Slug</b>  field same as title but each word separated by '-' symbol. <br>
+                            <b>Example:</b> Python-is-programming-language.</li>
+                        <li> Select  <b>Author</b> from drop down list. <br>Login <b>User name</b> must be matched selected Author name </li>
+                        <li>Write some description about the  post in the <b>Body</b> field.</li>
+                        <li>If you have data in file chose the file in <b>Data</b> field.
+                            <br>
+                        File types are .doc or .docx or .txt or .ppt</li>
+                        <li>If you have code  in file chose  the file in <b>Code</b> field.
+                            <br>
+                        File types are .py or .c or .java or .js or e.t.c</li>
+
+
+
+                    </ol>
+                </div>
+                <div class="col-md-6">
+                  <div class="title-box-2 pt-4 pt-md-0">
+                    <h5 class="title-left">
+                     Publish the post
+                    </h5>
+                  </div>
+
+                  <div>
+                      {% if msg %}
+                      {{msg}}
+                      <br>
+                      <a href="/pf"><u>click Here to Publish Post</u> </a>
+                      {%else%}
+
+                     <form method="POST">
+
+    {%csrf_token%}
+    {% for field in form %}
+        <label class="my_class"   for="{{ field.auto_id }}">{{ field.label }}</label>
+        {{ field }}
+    <br>
+    {% endfor %}
+                         <input type="submit" value="Submit" style="background-color:black;color:white;width:150px;
+height:40px;">
+
+</form>
+
+                  </div>
+  {%endif%}
+                  <div class="socials">
+                    <ul>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+{%endblock%}
+

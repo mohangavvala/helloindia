@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+{% extends "blog/base.html"%}
+{%load staticfiles%}
+
+{%block blogpost_block%}
+ <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+              Blog
+            </h3>
+
+            {%if tag%}  <!--  if tag is not None means when end user click the tag execute the if  -->
+        <h2>Posts tagged with : <button type="button"  class="btn btn-primary ">{{tag.name}}</button></h2>
+        {%endif%}
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+        <table >
+  <tr>
+
+
+
+      <div class="row">
+          {%for post in post_list %}
+          {% if forloop.counter == 1 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a href="blog-single.html">
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"> <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button"  class="btn btn-primary btn-xs">{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}
+
+{%for post in post_list %}
+          {% if forloop.counter == 2 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"  > <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button" class="btn btn-primary btn-xs" >{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}
+          {%for post in post_list %}
+          {% if forloop.counter == 3 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"> <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button" class="btn btn-primary btn-xs" >{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}
+          {%for post in post_list %}
+          {% if forloop.counter == 4 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"> <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button" class="btn btn-primary btn-xs" >{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}
+          {%for post in post_list %}
+          {% if forloop.counter == 5 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"> <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button" class="btn btn-primary btn-xs" >{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}
+          {%for post in post_list %}
+          {% if forloop.counter == 6 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"> <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button" class="btn btn-primary btn-xs" >{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}{%for post in post_list %}
+          {% if forloop.counter == 6 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"> <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button" class="btn btn-primary btn-xs" >{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}{%for post in post_list %}
+          {% if forloop.counter == 6 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"> <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button" class="btn btn-primary btn-xs" >{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}
+          {%for post in post_list %}
+          {% if forloop.counter == 6 %}
+
+
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{{post.get_absolute_url}}"><img src="{%static  "img/jaga.png" %}" alt="" class="img-fluid" title={{post.title}}></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+
+                  <h6 class="category"> <a href="{{post.get_absolute_url}}"><span style="color:black;font-weight:bold">{{post.title}}</span></a></h6>
+                </div>
+              </div>
+
+              <p class="card-description" align="justify">
+                {{post.body|truncatewords:30|linebreaks}}
+                                                                                       <a href="{{post.get_absolute_url}}"><u>click here to read</u></a>
+              </p>
+            </div>
+               <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+
+                  <span class="ion-ios-person"> <b>{{post.author|title}}</b></span></a>
+              </div>
+
+              <div class="post-date">
+                <span class="ion-ios-clock-outline" id='date'></span> <b>{{post.publish}}</b>
+
+              </div>
+              <div class="post-tags">
+
+
+
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="ion-pricetags">{%for tag in post.tags.all %}
+
+      {%if not forloop.last%} {%endif%} <b><a href="{%url "post_list_by_tag_name" tag.slug %}"><button type="button" class="btn btn-primary btn-xs" >{{tag.name}}</button></a></b></span>
+
+
+
+
+
+                {%endfor%}
+
+    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% endif %}
+          {%endfor%}
+          </tr>
+<tr>
+
+        </table>
+        </div>
+      </div>
+<div class="container" align="centere">
+<span  class="container" align="right" style="color:blue">{% include 'blog/pagenation.html' with page=post_list%}</span>
+      </div>
+    </div>
+  </section>
+  <!--/ Section Blog End /-->
+{%endblock%}

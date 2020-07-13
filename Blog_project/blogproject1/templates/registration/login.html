@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "blog/base.html"%}
+
+{%block login_block%}
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+ <div class="container" align="center">
+<h1> Login to Publish the Post</h1>
+<form method="post">
+    {{form.as_p}}
+    {%csrf_token%}
+    <input type="submit" value="Login" style="background-color:black;color:white;width:150px;
+height:40px;">
+</form>
+     <br>
+     <a href="/signup"><input type="submit" value="Signup" style="background-color:black;color:white;width:150px;
+height:40px;"></a>
+
+</div>
+{%endblock%}
